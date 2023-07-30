@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.bookmarket.domain.Book;
+import com.springmvc.exception.BookIdException;
 
 @Repository
 public class BookRepositoryImpl implements BookRepository {
@@ -39,6 +40,10 @@ public class BookRepositoryImpl implements BookRepository {
 			throw new IllegalArgumentException("도서 ID가"+bookId+"인 도서를 찾을 수 없습니다.");
 		
 		}
+		
+		if(bookInfo == null)
+			throw new BookIdException(bookId);
+		
 		return bookInfo;
 	}
 	
@@ -76,5 +81,11 @@ public class BookRepositoryImpl implements BookRepository {
 		
 		
 	}
+	
+	public void setNewBook(Book book) {
+		listOfBooks.add(book);
+	}
+	
+	
 
 }

@@ -1,5 +1,7 @@
 package com.bookmarket.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Book {
 	private String bookId;
 	private String name;
@@ -8,6 +10,7 @@ public class Book {
 	private String description;
 	private String publisher;
 	private String category;
+	private MultipartFile bookImage;
 	private long unitsInStock;
 	
 	private String releaseDate;
@@ -103,6 +106,14 @@ public class Book {
 
 	public void setCondition(String condition) {
 		this.condition = condition;
+	}
+
+	public MultipartFile getBookImage() {
+		return bookImage;
+	}
+
+	public void setBookImage(MultipartFile bookImage) {
+		this.bookImage = bookImage;
 	}
 	
 	
