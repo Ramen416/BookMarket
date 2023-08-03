@@ -46,6 +46,7 @@
 				<h4>${book.unitPrice }원</h4>
 				<br>
 				<p><a href="#" class="btn btn-primary">도서주문</a>
+				<a href="<c:url value="/cart"/>" class="btn btn-warning">장바구니</a>
 				<a href="<c:url value="/books"/>" class="btn btn-secondary">도서목록</a>
 			</div>
 		</div>
