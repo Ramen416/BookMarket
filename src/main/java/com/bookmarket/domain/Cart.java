@@ -75,6 +75,24 @@ public class Cart {
 	}
 	
 	
+	public void addCartItem(CartItem item) {
+		String bookId = item.getBook().getBookId();
+		
+		if (cartItems.containsKey(bookId)) {
+			CartItem cartItem = cartItems.get(bookId);
+			cartItem.setQuantity(cartItem.getQuantity() + item.getQuantity());
+			cartItems.put(bookId, cartItem);
+			
+		} else {
+			cartItems.put(bookId, item);
+		}
+		updateGrandTotal();
+	}
 	
+	public void removeCartItem(CartItem item) {
+		String bookId = item.getBook().getBookId();
+		cartItems.remove(bookId);
+		updateGrandTotal();
+	}
 	
 }

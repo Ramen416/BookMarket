@@ -28,4 +28,18 @@ public class CartRepositoryImpl implements CartRepository {
 	public Cart read(String cartId) {
 		return listOfCarts.get(cartId);	
 	}
+	
+	public void update(String cartId, Cart cart) {
+		if (!listOfCarts.keySet().contains(cartId)) {
+			throw new IllegalArgumentException(String.format("장바구니 id가 없음", cartId));
+		}
+		listOfCarts.put(cartId, cart);
+	}
+	
+	public void delete(String cartId) {
+		if (!listOfCarts.keySet().contains(cartId)) {
+			throw new IllegalArgumentException(String.format("장바구니 삭제 불가", cartId));
+		}
+		listOfCarts.remove(cartId);
+	}
 }
